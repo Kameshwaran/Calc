@@ -18,9 +18,10 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="59dp"
-        android:id="@+id/editText2"
+        android:id="@+id/display"
         android:layout_gravity="center_horizontal"
-        android:layout_weight="0.41" />
+        android:layout_weight="0.41"
+        android:linksClickable="false" />
 
     <LinearLayout
         android:orientation="horizontal"
@@ -32,27 +33,27 @@
             android:layout_width="96dp"
             android:layout_height="84dp"
             android:text="1"
-            android:id="@+id/button9"
+            android:id="@+id/btnOne"
             android:layout_weight="0.07" />
 
         <Button
             android:layout_width="96dp"
             android:layout_height="84dp"
             android:text="2"
-            android:id="@+id/button11"
+            android:id="@+id/btnTwo"
             android:layout_weight="0.09" />
 
         <Button
             android:layout_width="96dp"
             android:layout_height="84dp"
             android:text="3"
-            android:id="@+id/button12" />
+            android:id="@+id/btnThree" />
 
         <Button
             android:layout_width="96dp"
             android:layout_height="84dp"
             android:text="+"
-            android:id="@+id/button13" />
+            android:id="@+id/btnPlus" />
     </LinearLayout>
 
     <LinearLayout
@@ -60,32 +61,32 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:weightSum="1">
+
+        <Button
+            android:layout_width="96dp"
+            android:layout_height="84dp"
+            android:text="4"
+            android:id="@+id/btnFour"
+            android:layout_weight="0.07" />
 
         <Button
             android:layout_width="96dp"
             android:layout_height="84dp"
             android:text="5"
-            android:id="@+id/button9"
-            android:layout_weight="0.07" />
-
-        <Button
-            android:layout_width="96dp"
-            android:layout_height="84dp"
-            android:text="6"
-            android:id="@+id/button11"
+            android:id="@+id/btnFive"
             android:layout_weight="0.09" />
 
         <Button
             android:layout_width="96dp"
             android:layout_height="84dp"
-            android:text="7"
-            android:id="@+id/button12" />
+            android:text="6"
+            android:id="@+id/btnSix" />
 
         <Button
             android:layout_width="96dp"
             android:layout_height="84dp"
             android:text="-"
-            android:id="@+id/button13" />
+            android:id="@+id/btnMinus" />
     </LinearLayout>
 
     <LinearLayout
@@ -97,28 +98,28 @@
         <Button
             android:layout_width="96dp"
             android:layout_height="84dp"
-            android:text="8"
-            android:id="@+id/button9"
+            android:text="7"
+            android:id="@+id/btnSeven"
             android:layout_weight="0.07" />
 
         <Button
             android:layout_width="96dp"
             android:layout_height="84dp"
-            android:text="9"
-            android:id="@+id/button11"
+            android:text="8"
+            android:id="@+id/btnEight"
             android:layout_weight="0.09" />
 
         <Button
             android:layout_width="96dp"
             android:layout_height="84dp"
-            android:text="0"
-            android:id="@+id/button12" />
+            android:text="9"
+            android:id="@+id/btnNine" />
 
         <Button
             android:layout_width="96dp"
             android:layout_height="84dp"
             android:text="*"
-            android:id="@+id/button13" />
+            android:id="@+id/btnStar" />
     </LinearLayout>
 
     <LinearLayout
@@ -131,27 +132,27 @@
             android:layout_width="96dp"
             android:layout_height="84dp"
             android:text="/"
-            android:id="@+id/button9"
+            android:id="@+id/btnSlash"
             android:layout_weight="0.07" />
 
         <Button
             android:layout_width="96dp"
             android:layout_height="84dp"
-            android:text="SQRT"
-            android:id="@+id/button11"
+            android:text="0"
+            android:id="@+id/btnZero"
             android:layout_weight="0.09" />
 
         <Button
             android:layout_width="96dp"
             android:layout_height="84dp"
             android:text="CLR"
-            android:id="@+id/button12" />
+            android:id="@+id/btnClear" />
 
         <Button
             android:layout_width="96dp"
             android:layout_height="84dp"
             android:text="="
-            android:id="@+id/button13" />
+            android:id="@+id/btnEqualTo" />
     </LinearLayout>
 
 
