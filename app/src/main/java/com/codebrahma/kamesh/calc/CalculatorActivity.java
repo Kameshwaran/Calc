@@ -21,6 +21,9 @@ public class CalculatorActivity extends Activity {
 
     public CalculatorActivity(){
         idToButtonMap = new HashMap<Integer, CalcButton>();
+        operand1 = new String();
+        operand2 = new String();
+        operator = '\0';
     }
 
     @Override
@@ -36,7 +39,7 @@ public class CalculatorActivity extends Activity {
         OnClickListener clickListener = new OnClickListener() {
             @Override
             public void onClick(View view) {
-                store(view)
+                store(view);
             }
         };
 
@@ -53,31 +56,53 @@ public class CalculatorActivity extends Activity {
             Integer number = calcButton.getNumber();
             if(operator == '\0') {
                 operand1 = (operand1 + number).toString();
+                display.setText(operand1);
             }
             else{
                 operand2 = (operand2 + number).toString();
+                display.setText(operand2);
             }
         }
 
-        if( calcButton.isSymbol() ) switch (calcButton.text) {
-            case "+":
-            case "-":
-            case "*":
-            case "/":
-                operator = ((Character) text);
-                break;
-            case "C":
-                clearOperandsAndOperator();
-                break;
-            case "=":
-                calculate();
-                break;
+        if( calcButton.isSymbol() ) {
+            switch (calcButton.text) {
+                case '+':
+                case '-':
+                case '*':
+                case '/':
+                    operator = ((Character) calcButton.text);
+                    break;
+                case 'C':
+                    clearOperandsAndOperator();
+                    display.setText("");
+                    break;
+                case '=':
+                    Double result = calculate();
+                    display.setText(result.toString());
+                    break;
+            }
         }
 
     }
 
-    private void calculate(){
-        
+    private Double calculate(){
+        Double value1 = Double.parseDouble(operand1);
+        Double value2 = Double.parseDouble(operand2);
+        Double result = 0.0;
+
+        if(operator == '+'){
+             result = value1 + value2;
+        }
+        if(operator == '-'){
+            result =  value1 - value2;
+        }
+        if(operator == '*'){
+            result = value1 * value2;
+        }
+        if(operator == '/'){
+            result =  value1/value2;
+        }
+        return result;
     }
 
     private void clearOperandsAndOperator(){
@@ -103,6 +128,7 @@ public class CalculatorActivity extends Activity {
         idToButtonMap.put(R.id.btnStar, new CalcButton( CalculatorConstants.Star, getButtonById( R.id.btnStar ) ));
         idToButtonMap.put(R.id.btnSlash, new CalcButton( CalculatorConstants.Slash, getButtonById( R.id.btnSlash ) ));
         idToButtonMap.put(R.id.btnEqualTo, new CalcButton( CalculatorConstants.EqualTo, getButtonById( R.id.btnEqualTo ) ));
+        idToButtonMap.put(R.id.btnClear, new CalcButton( CalculatorConstants.Clear, getButtonById( R.id.btnClear ) ));
 
         //Initializing TextField
         display = (EditText) this.findViewById(R.id.display);
@@ -136,10 +162,10 @@ public class CalculatorActivity extends Activity {
 }
 
 class CalcButton {
-    public String text;
+    public Character text;
     public Button button;
 
-    public CalcButton(String text, Button button){
+    public CalcButton(Character text, Button button){
         this.text = text;
         this.button = button;
     }
@@ -159,6 +185,6 @@ class CalcButton {
     }
 
     public Integer getNumber(){
-        return Integer.parseInt(text);
+        return Integer.parseInt((text+"").toString());
     }
 }
